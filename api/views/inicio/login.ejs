@@ -1,0 +1,30 @@
+
+
+<% include ../parcial/header.ejs %>
+    
+        <main>
+            <center>
+                <div class="erro">
+                    <div class="alert alert-danger">Mensagem</div>
+                </div>
+    
+                <form action="/inicio/validarLogin" method="post" class="form-login">
+                    <label>Usuário:</label>
+                    <input type="text" class="form-control" name="login" value=""/>
+                    <label>Senha:</label>
+                    <input type="password" class="form-control" name="senha" />
+                    <br>
+                    <input type="submit" value="Login" class="btn btn-primary btn-block">
+                </form>
+            </center>
+        </main>
+
+        <% include ../parcial/footer.ejs %>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+

@@ -1,0 +1,64 @@
+<% include ../parcial/header.ejs %>
+
+<nav class="menuPrincipal">
+    <h2 id="titulo">Listar Editar</h2>
+    <ul>
+        <li><a href="/">Login</a></li>
+        <li><a href="/index">Menu Principal</a></li>
+        <li><a href="#">Cadastrar Livros</a></li>
+        <li><a href="/livros/listarLivros
+            ">Listar Livros</a></li>
+        <li><a href="#">Autores</a></li>
+        <li><a href="#">Editoras</a></li>
+    </ul>
+</nav>
+
+<br>
+<hr>
+
+<section>
+    <form action="/livros/salvarLivros" method="POST">
+
+        <div class="row">
+            <div class="col-md-1 offset-col-md-0">
+
+                <label for="">
+                    Codigo
+                </label>
+                <input type="text" name="liv_codigo" id="" value="<%obj_livros[0]%>" class="form-control" readonly>
+            </div>
+            <div class="col-md-1 offset-col-md-1">
+
+                <label for="">
+                    Cadastro
+                </label>
+                <input type="text" name="liv_dtcadastro" id="" value="<%obj_livros[0]%>" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="row">
+
+        </div>
+
+        <div class="row justify-content-center pt-2">
+            <div class="col-md-2 ">
+                <button class="btn btn-secondary btn-block" type="button" href="/livros/listarLivros">Cancelar</button>
+            </div>
+            <div class="col-md-2 offset-col-md-6">
+                <button class="btn btn-primary btn-block" type="button">Salvar</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+
+<% include ../parcial/footer.ejs %>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

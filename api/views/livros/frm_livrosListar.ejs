@@ -1,0 +1,70 @@
+<% include ../parcial/header.ejs %>
+
+<nav class="menuPrincipal">
+    <h2 id="titulo">Listar Livros</h2>
+    <ul>
+        <li><a href="/">Login</a></li>
+        <li><a href="/index">Menu Principal</a></li>
+        <li><a href="#">Cadastrar Livros</a></li>
+        <li><a href="/livros/listarLivros
+            ">Listar Livros</a></li>
+        <li><a href="#">Autores</a></li>
+        <li><a href="#">Editoras</a></li>
+    </ul>
+</nav>
+
+<br>
+<hr>
+
+<section id="listarlivros">
+    <fieldset>
+        <legend> Registros de Livros </legend>
+        <table border="1" id="registros">
+            <tr>
+                <td>Código</td>
+                <td>Ativo/Inativo</td>
+                <td>Dt.Cadastro</td>
+                <td>Título do livro</td>
+                <td>Edição</td>
+                <td>ISBN</td>
+                <td>Ano</td>
+                <td>Autor</td>
+                <td>Editora</td>
+                <td><a class="btn btn-success btn-block" href="/livros/novoLivro">Novo</a></td>
+            </tr>
+
+            <% for(i=0; i <obj_livros.length; i++) { %>
+
+            <tr>
+                <td> <%= obj_livros[i].liv_codigo %> </td>
+                <td> <%= obj_livros[i].liv_ativoinativo %> </td>
+                <td> <%= obj_livros[i].liv_dtcadastro %> </td>
+                <td> <%= obj_livros[i].liv_titulo %> </td>
+                <td> <%= obj_livros[i].liv_edicao %> </td>
+                <td> <%= obj_livros[i].liv_isbn %> </td>
+                <td> <%= obj_livros[i].liv_ano %> </td>
+                <td> <%= obj_livros[i].aut_apelido %> </td>
+                <td> <%= obj_livros[i].edi_nome %> </td>
+
+                <td><a class="btn btn-primary btn-block"
+                        href=<%="/livros/condultar/" + obj_livros[i].liv_codigo%>>Consultar</a></td>
+                <td><a class="btn btn-primary btn-block"
+                        href=<%="/livros/inativar/" + obj_livros[i].liv_codigo%>>Inativar</a> </td>
+
+            </tr>
+            <% } %>
+
+        </table>
+    </fieldset>
+</section>
+
+
+<% include ../parcial/footer.ejs %>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

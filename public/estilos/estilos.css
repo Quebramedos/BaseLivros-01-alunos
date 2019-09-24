@@ -1,0 +1,41 @@
+.menuPrincipal ul li {
+    display: inline;
+    padding-left: 22px;
+
+}
+
+.menuPrincipal ul li a {
+    color: rgb(55, 2, 247);
+    text-decoration: none;
+}
+
+.menuPrincipal ul li a:hover {
+    color: red;
+    font-size: 28px;
+
+}
+
+.menuPrincipal {
+    font-size: 20px;
+    padding-left: 0px;
+
+    transition: 0.2s;
+    border: solid 1px black;
+}
+
+
+#titulo {
+    text-align: center;
+    font-size: 20px;
+    margin: 0px;
+    color: navy;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50em;
+    border: 1px solid #666;
+}
+table, th, td {
+    border: 1px solid black;
+  }
