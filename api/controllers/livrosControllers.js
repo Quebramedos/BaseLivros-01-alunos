@@ -59,7 +59,10 @@ function livroNovo(req, res_livros) {
             title: 'Livros Editar',
             empresa: 'Fatec Franca - Programação Script - WEB',
             rota: req.originalUrl,
+            obj_autores: res_autores,
+            obj_editoras: res_editoras,
             obj_livros: dados
+         
           });
         }
 

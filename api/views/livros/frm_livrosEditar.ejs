@@ -18,36 +18,136 @@
 
 <section>
     <form action="/livros/salvarLivros" method="POST">
+        <div class="container-fluid">
+            <div class="">
 
-        <div class="row">
-            <div class="col-md-1 offset-col-md-0">
 
-                <label for="">
-                    Codigo
-                </label>
-                <input type="text" name="liv_codigo" id="" value="<%obj_livros[0]%>" class="form-control" readonly>
+                <div class="row">
+                    <div class="col-md-1 offset-col-md-0">
+
+                        <label for="">
+                            Codigo
+                        </label>
+                        <input type="text" name="liv_codigo" id="" value="<%obj_livros[0].liv_codigo%>"
+                            class="form-control" readonly>
+                    </div>
+                    <div class="col-md-1 offset-col-md-1">
+
+                        <label for="">
+                            Cadastro
+                        </label>
+                        <input type="text" name="liv_dtcadastro" id="" value="<%obj_livros[0].liv_cadastro%>"
+                            class="form-control" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1 offset-col-md-1">
+
+                        <label for="">
+                            Ativo/Inativo
+                        </label>
+                        <input type="text" name="liv_ativoInativo" id="" value="<%obj_livros[0].liv_ativoInativo%>"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 offset-col-md-1">
+
+                        <label for="">
+                            Titulo do livro
+                        </label>
+                        <input type="text" name="liv_titulo" id="titulo" value="<%obj_livros[0].liv_titulo%>"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 offset-col-md-1">
+
+                        <label for="">
+                            Edição
+                        </label>
+                        <input type="text" name="liv_edicao" id="edicao" value="<%obj_livros[0].liv_edicao%>"
+                            class="form-control" placeholder="nº Edição" size="15" maxlength="10">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 offset-col-md-1">
+
+                        <label for="">
+                            ISBN
+                        </label>
+                        <input type="text" name="liv_isbn" id="edicao" value="<%obj_livros[0].liv_isbn%>"
+                            class="form-control">
+                    </div>
+                    <div class="col-md-1 offset-col-md-0">
+
+                        <label for="">
+                            Ano
+                        </label>
+                        <input type="text" name="liv_ano" id="ano" value="<%obj_livros[0].liv_ano%>"
+                            class="form-control">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 offset-col-md-3">
+
+                        <label for="">
+                            Autor
+                        </label>
+                        <div class="">
+                            <select name="aut_codigo" id="aut_codigo" class="form-control form-control-sm" required
+                                aria-describedby="autoHelp">
+                                <option value=""></option>
+                                <% obj_autores.forEach(function(autores){ %>
+                                <option <% if(autores.aut_codigo==obj_livros[0].aut_codigo) {%> selected="selected" <%}
+                        %> value="
+                        <%=autores.aut_codigo %>">
+                                    <%=autores.aut_codigo %>
+                                    <%=autores.aut_apelido %>
+                                </option>
+                                <% }); %>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 offset-col-md-3">
+
+                        <label for="">
+                           Editora
+                        </label>
+                        <div class="">
+                            <select name="aut_codigo" id="aut_codigo" class="form-control form-control-sm" required
+                                aria-describedby="autoHelp">
+                                <option value=""></option>
+                                <% obj_editoras.forEach(function(editoras){ %>
+                                <option 
+                                <% if(editoras.edi_codigo==obj_livros[0].edi_codigo) 
+                                {%> selected <%} %> value="
+                                    <%=editoras.edi_codigo %>">
+                                    <%=editoras.edi_codigo %>
+                                    <%=editoras.edi_nome %>
+                                </option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center pt-2">
+                    <div class="col-md-2 ">
+                        <button class="btn btn-secondary btn-block" type="button"
+                            href="/livros/listarLivros">Cancelar</button>
+                    </div>
+                    <div class="col-md-2 offset-col-md-6">
+                        <button class="btn btn-primary btn-block" type="button">Salvar</button>
+                    </div>
+
+                </div>
             </div>
-            <div class="col-md-1 offset-col-md-1">
-
-                <label for="">
-                    Cadastro
-                </label>
-                <input type="text" name="liv_dtcadastro" id="" value="<%obj_livros[0]%>" class="form-control" readonly>
-            </div>
-        </div>
-
-        <div class="row">
-
-        </div>
-
-        <div class="row justify-content-center pt-2">
-            <div class="col-md-2 ">
-                <button class="btn btn-secondary btn-block" type="button" href="/livros/listarLivros">Cancelar</button>
-            </div>
-            <div class="col-md-2 offset-col-md-6">
-                <button class="btn btn-primary btn-block" type="button">Salvar</button>
-            </div>
-
         </div>
     </form>
 </section>
