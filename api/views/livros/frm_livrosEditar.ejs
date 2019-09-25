@@ -120,16 +120,16 @@
                            Editora
                         </label>
                         <div class="">
-                            <select name="aut_codigo" id="aut_codigo" class="form-control form-control-sm" required
+                            <select name="edt_codigo" id="edt_nome" class="form-control form-control-sm" required
                                 aria-describedby="autoHelp">
                                 <option value=""></option>
                                 <% obj_editoras.forEach(function(editoras){ %>
                                 <option 
-                                <% if(editoras.edi_codigo==obj_livros[0].edi_codigo) 
+                                <% if(editoras.edt_codigo==obj_livros[0].edt_codigo) 
                                 {%> selected <%} %> value="
-                                    <%=editoras.edi_codigo %>">
-                                    <%=editoras.edi_codigo %>
-                                    <%=editoras.edi_nome %>
+                                    <%=editoras.edt_codigo %>">
+                                    <%=editoras.edt_codigo %>
+                                    <%=editoras.edt_nome %>
                                 </option>
                                 <% }); %>
                             </select>
