@@ -7,3 +7,6 @@ app.get('/livros/listarLivros', controllerLivros.livrosListar);
 
 
 app.get('/livros/novoLivro', controllerLivros.livroNovo);
+
+
+app.post('/livros/gravarLivro', controllerLivros.livroGravar);

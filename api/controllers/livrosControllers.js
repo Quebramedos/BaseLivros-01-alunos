@@ -5,7 +5,8 @@ module.exports = {
 
   livrosMenu,
   livrosListar,
-  livroNovo
+  livroNovo,
+  livroGravar
 
 }
 
@@ -19,7 +20,7 @@ function livrosMenu(req, res) {
 
 function livrosListar(req, res) {
   livrosController.listarLivros(function (err, result) {
-  
+
     if (err) {
       throw err;
     } else {
@@ -62,7 +63,7 @@ function livroNovo(req, res_livros) {
             obj_autores: res_autores,
             obj_editoras: res_editoras,
             obj_livros: dados
-         
+
           });
         }
 
@@ -70,4 +71,30 @@ function livroNovo(req, res_livros) {
     }
   });
 
+}
+
+function livroGravar(req, res_livros) {
+  var dados = req.body;
+  console.log('Gravando Livros');
+  if (dados.liv_codigo = '') {
+    dados.liv_codigo = null;
+    livrosController.gravarLivro(dados, function (err, res_livros) {
+      if (err) {
+        throw err;
+      } else {
+        res_livros.redirect("/livros/listarLivros")
+      }
+    });
+
+  } else {
+    console.log('Gravando Livros');
+    livrosController.editarLivro(dados, function (err, res_livros) {
+      if (err) {
+        throw err;
+      } else {
+        res_livros.redirect("/livros/listarLivros")
+      }
+
+    });
+  }
 }

@@ -4,7 +4,9 @@ const banco = require('../../config/conexao.js');
 module.exports = {
     listarLivros,
     listarAutores,
-    listarEditoras
+    listarEditoras,
+    gravarLivro,
+    editarLivro
 }
 
 function listarLivros(callback) {
@@ -27,5 +29,25 @@ function listarEditoras(callback) {
     m_sql = 'select * from Editoras order BY edt_nome';
 
     banco.query(m_sql, callback);
+
+}
+
+function gravarLivro(dados, callback) {
+    m_sql = 'INSERT INTO livros SET ?';
+    banco.query(m_sql, dados, callback);
+}
+
+
+function editarLivro(dados, callback) {
+    const m_sql = "UPDATE livros SET liv_titulo = '" + dados.liv_titulo +
+        "', liv_edicao = '" + dados.liv_edicao +
+        "', liv_isbn = '" + dados.liv_isbn +
+        "', liv_ano = '" + dados.liv_ano +
+        "', liv_ativoinativo = '" + dados.liv_ativoinativo +
+        "', aut_codigo = '" + dados.aut_codigo +
+        "', edt_codigo = '" + dados.edt_codigo +
+        "' where liv_codigo = '" + dados.liv_codigo + "'";
+
+    banco.query(m_sql, dados, callback);
 
 }
