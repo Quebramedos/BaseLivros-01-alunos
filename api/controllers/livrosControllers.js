@@ -78,17 +78,17 @@ function livroGravar(req, res_livros) {
   console.log('Gravando Livros');
   if (dados.liv_codigo = '') {
     dados.liv_codigo = null;
-    livrosController.gravarLivro(dados, function (err, res_livros) {
+    livrosController.gravarLivro(dados, function (err, result) {
       if (err) {
         throw err;
       } else {
-        res_livros.redirect("/livros/listarLivros")
+      result.redirect("/livros/listarLivros")
       }
     });
 
   } else {
     console.log('Gravando Livros');
-    livrosController.editarLivro(dados, function (err, res_livros) {
+    livrosController.editarLivro(dados, function (err, result) {
       if (err) {
         throw err;
       } else {
