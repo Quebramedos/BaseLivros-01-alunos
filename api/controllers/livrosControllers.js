@@ -41,7 +41,7 @@ function livroNovo(req, res_livros) {
     liv_edicao: "",
     liv_ano: "",
     liv_ativoInativo: "",
-    edi_codigo: "",
+    edt_codigo: "",
     aut_codigo: ""
   }];
 

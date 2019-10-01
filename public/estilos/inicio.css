@@ -19,10 +19,9 @@ header{
 }
 
 footer {
- 
+ margin-top: 200px;
     bottom:0;
     width:100%;
     text-align: center;
-    background-color: aqua;
+    background-color: rgb(45, 247, 45);
 }
-  

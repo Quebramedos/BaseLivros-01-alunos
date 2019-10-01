@@ -120,7 +120,8 @@
                            Editora
                         </label>
                         <div class="">
-                            <select name="edt_codigo" id="edt_nome" class="form-control form-control-sm" required
+                            <select name="edt_codigo" id="edt_nome"
+                             class="form-control form-control-sm" required
                                 aria-describedby="autoHelp">
                                 <option value=""></option>
                                 <% obj_editoras.forEach(function(editoras){ %>
@@ -137,13 +138,13 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center pt-2">
+                <div class="row justify-content-center pt-2 mt-2">
                     <div class="col-md-2 ">
                         <button class="btn btn-secondary btn-block" type="button"
-                            href="/livros/listarLivros">Cancelar</button>
+                            href="/livros/listarLivros">Novo Registror</button>
                     </div>
                     <div class="col-md-2 offset-col-md-6">
-                        <button class="btn btn-primary btn-block" type="button">Salvar</button>
+                        <button class="btn btn-primary btn-block" type="button">Gravar Registro</button>
                     </div>
 
                 </div>
@@ -151,7 +152,8 @@
         </div>
     </form>
 </section>
-
+<br>
+<br>
 
 <% include ../parcial/footer.ejs %>
 
