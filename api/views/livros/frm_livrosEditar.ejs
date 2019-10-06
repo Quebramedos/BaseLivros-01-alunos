@@ -85,7 +85,7 @@
                         <label for="">
                             Ano
                         </label>
-                        <input type="text" name="liv_ano" id="ano" value="<%obj_livros[0].liv_ano%>"
+                        <input type="number" name="liv_ano" id="ano" value="<%obj_livros[0].liv_ano%>"
                             class="form-control">
                     </div>
                 </div>
@@ -117,16 +117,14 @@
                     <div class="col-md-3 offset-col-md-3">
 
                         <label for="">
-                           Editora
+                            Editora
                         </label>
                         <div class="">
-                            <select name="edt_codigo" id="edt_nome"
-                             class="form-control form-control-sm" required
+                            <select name="edt_codigo" id="edt_nome" class="form-control form-control-sm" required
                                 aria-describedby="autoHelp">
                                 <option value=""></option>
                                 <% obj_editoras.forEach(function(editoras){ %>
-                                <option 
-                                <% if(editoras.edt_codigo==obj_livros[0].edt_codigo) 
+                                <option <% if(editoras.edt_codigo == obj_livros[0].edt_codigo) 
                                 {%> selected <%} %> value="
                                     <%=editoras.edt_codigo %>">
                                     <%=editoras.edt_codigo %>
@@ -140,11 +138,14 @@
 
                 <div class="row justify-content-center pt-2 mt-2">
                     <div class="col-md-2 ">
-                        <button class="btn btn-secondary btn-block" type="button"
-                            href="/livros/listarLivros">Novo Registror</button>
+                        <button class="btn btn-secondary btn-block" type="button" href="/livros/listarLivros">Novo
+                            Registror</button>
                     </div>
                     <div class="col-md-2 offset-col-md-6">
                         <button class="btn btn-primary btn-block" type="submit">Gravar Registro</button>
+                    </div>
+                    <div class="col-md-2 offset-col-md-6">
+                        <a href="/livros/listarLivros" class="btn btn-warning btn-block">Voltar</a>
                     </div>
 
                 </div>

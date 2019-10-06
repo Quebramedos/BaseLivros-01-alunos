@@ -6,7 +6,9 @@ module.exports = {
     listarAutores,
     listarEditoras,
     gravarLivro,
-    editarLivro
+    editarLivro,
+    listarUmLivro,
+    InativarLivro
 }
 
 function listarLivros(callback) {
@@ -34,6 +36,7 @@ function listarEditoras(callback) {
 
 function gravarLivro(dados, callback) {
     m_sql = 'INSERT INTO livros SET ?';
+    dados.liv_dtcadastro = new Date();
     banco.query(m_sql, dados, callback);
 }
 
@@ -48,6 +51,22 @@ function editarLivro(dados, callback) {
         "', edt_codigo = '" + dados.edt_codigo +
         "' where liv_codigo = '" + dados.liv_codigo + "'";
 
-    banco.query(m_sql, dados, callback);
+    banco.query(m_sql, callback);
 
+}
+
+function listarUmLivro(id, callback) {
+    m_sql = "select * from livros WHERE liv_codigo = ";
+
+    banco.query(m_sql + id, callback);
+
+}
+
+function InativarLivro(id, ativo, callback) {
+    m_sql = "UPDATE livros SET liv_ativoinativo =  '" + ativo + "' WHERE liv_codigo = '" + id + "'";
+
+    banco.query(m_sql, function(err, result){
+        banco.query(m_sql, callback)
+    });
+console.log("estou na model ")
 }

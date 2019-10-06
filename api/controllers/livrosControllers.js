@@ -40,7 +40,7 @@ function livroNovo(req, res_livros) {
     liv_dtcadastro: moment().format('DD/MM/YYYY'),
     liv_titulo: "",
     liv_edicao: "",
-    liv_ano: "",
+    liv_ano: "0",
     liv_ativoInativo: "",
     edt_codigo: "",
     aut_codigo: ""
@@ -75,9 +75,10 @@ function livroNovo(req, res_livros) {
 
 function livroGravar(req, res_livros) {
   var dados = req.body;
-  console.log('Gravando Livros');
-  if (dados.liv_codigo = '') {
+  
+  if (dados.liv_codigo == '') {
     dados.liv_codigo = null;
+    console.log('Gravando Livros');
     livrosController.gravarLivro(dados, function (err, result) {
       if (err) {
         throw err;

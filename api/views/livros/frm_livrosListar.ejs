@@ -30,7 +30,7 @@
                 <td>Ano</td>
                 <td>Autor</td>
                 <td>Editora</td>
-                <td><a class="btn btn-success btn-block" href="/livros/novoLivro">Novo</a></td>
+                <td><a class="btn btn-success btn-block" href="/livros/novoLivro">Novo Registro</a></td>
             </tr>
 
             <% for(i=0; i <obj_livros.length; i++) { %>
@@ -46,11 +46,14 @@
                 <td> <%= obj_livros[i].aut_apelido %> </td>
                 <td> <%= obj_livros[i].edt_nome %> </td>
 
-                <td><a class="btn btn-primary btn-block"
-                        href=<%="/livros/condultar/" + obj_livros[i].liv_codigo%>>Consultar</a></td>
-                <td><a class="btn btn-primary btn-block"
-                        href=<%="/livros/inativar/" + obj_livros[i].liv_codigo%>>Inativar</a> </td>
-
+                <td><a class="btn btn-primary btn-block" href=<%="/livros/consultar/" + obj_livros[i].liv_codigo%>>
+                        Consultar
+                    </a></td>
+                <td>
+                    <a class="btn btn-success btn-block" href=<%="/livros/inativar/" + obj_livros[i].liv_codigo%>>
+                        Inativar
+                    </a>
+                </td>
             </tr>
             <% } %>
 
