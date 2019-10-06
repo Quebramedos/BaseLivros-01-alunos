@@ -8,7 +8,7 @@ module.exports = {
     gravarLivro,
     editarLivro,
     listarUmLivro,
-    InativarLivro
+    inativarLivro
 }
 
 function listarLivros(callback) {
@@ -21,21 +21,21 @@ function listarLivros(callback) {
 
 
 function listarAutores(callback) {
-    m_sql = 'select * from Autores order BY aut_apelido';
+    m_sql = 'SELECT * FROM autores ORDER BY aut_apelido';
 
     banco.query(m_sql, callback);
 
 }
 
 function listarEditoras(callback) {
-    m_sql = 'select * from Editoras order BY edt_nome';
+    m_sql = 'SELECT * from editoras ORDER BY edt_nome';
 
     banco.query(m_sql, callback);
 
 }
 
 function gravarLivro(dados, callback) {
-    m_sql = 'INSERT INTO livros SET ?';
+    m_sql = "INSERT INTO livros SET ?";
     dados.liv_dtcadastro = new Date();
     banco.query(m_sql, dados, callback);
 }
@@ -47,26 +47,25 @@ function editarLivro(dados, callback) {
         "', liv_isbn = '" + dados.liv_isbn +
         "', liv_ano = '" + dados.liv_ano +
         "', liv_ativoinativo = '" + dados.liv_ativoinativo +
-        "', aut_codigo = '" + dados.aut_codigo +
-        "', edt_codigo = '" + dados.edt_codigo +
+        "', aut_codigo = '" + parseInt(dados.aut_codigo) +
+        "', edt_codigo = '" + parseInt(dados.edt_codigo) +
         "' where liv_codigo = '" + dados.liv_codigo + "'";
-
     banco.query(m_sql, callback);
 
 }
 
 function listarUmLivro(id, callback) {
-    m_sql = "select * from livros WHERE liv_codigo = ";
+    m_sql = "SELECT * FROM livros WHERE liv_codigo = '" + id + "'";
 
-    banco.query(m_sql + id, callback);
-
+    banco.query(m_sql, callback);
 }
 
-function InativarLivro(id, ativo, callback) {
+function inativarLivro(id, ativo, callback) {
     m_sql = "UPDATE livros SET liv_ativoinativo =  '" + ativo + "' WHERE liv_codigo = '" + id + "'";
 
-    banco.query(m_sql, function(err, result){
+    banco.query(m_sql, function (err, result) {
+
         banco.query(m_sql, callback)
     });
-console.log("estou na model ")
+
 }

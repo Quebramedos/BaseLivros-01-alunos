@@ -16,143 +16,141 @@
 <br>
 <hr>
 
-<section>
-    <form action="/livros/gravarLivro" method="POST">
-        <div class="container-fluid">
-            <div class="">
+<form action="/livros/gravarLivro" method="POST">
+    <div class="container">
+        <h3 class="text-center pb-4">Registro</h3>
+        <div class="row justify-content-center">
+
+            <div class="col-md-3">
+
+                <label for="">
+                    Codigo
+                </label>
+                <input type="text" name="liv_codigo" id="" value="<%=obj_livros[0].liv_codigo%>" class="form-control"
+                    readonly>
+            </div>
+            <div class="col-md-4 ">
+
+                <label for="dtcadastro">
+                    Data Cadastro
+                </label>
+                <input type="text" name="liv_dtcadastro" id="dtcadastro" 
+                value="<%=obj_livros[0].liv_dtcadastro%>"
+                    class="form-control" readonly>
+            </div>
+
+        </div>
+        <div class="row justify-content-center mt-1">
+            <div class="col-md-2 ">
+
+                <label for="">
+                    Ativo/Inativo
+                </label>
+                <input type="text" name="liv_ativoinativo" id="ativoinativo" 
+                value="<%=obj_livros[0].liv_ativoinativo%>"
+                    class="form-control"/>
+            </div>
 
 
-                <div class="row">
-                    <div class="col-md-1 offset-col-md-0">
+            <div class="col-md-5 ">
 
-                        <label for="">
-                            Codigo
-                        </label>
-                        <input type="text" name="liv_codigo" id="" value="<%obj_livros[0].liv_codigo%>"
-                            class="form-control" readonly>
-                    </div>
-                    <div class="col-md-1 offset-col-md-1">
+                <label for="titulo">
+                    Titulo do livro
+                </label>
+                <input type="text" name="liv_titulo" id="titulo" value="<%=obj_livros[0].liv_titulo%>"
+                    class="form-control">
+            </div>
 
-                        <label for="">
-                            Cadastro
-                        </label>
-                        <input type="text" name="liv_dtcadastro" id="" value="<%obj_livros[0].liv_cadastro%>"
-                            class="form-control" readonly>
-                    </div>
-                </div>
+        </div>
+        <div class="row justify-content-center mt-1">
+            <div class="col-md-2 ">
 
-                <div class="row">
-                    <div class="col-md-1 offset-col-md-1">
+                <label for="edicao">
+                    Edição
+                </label>
+                <input type="text" name="liv_edicao" id="edicao" value="<%=obj_livros[0].liv_edicao%>"
+                    class="form-control" placeholder="nº Edição" size="15" maxlength="10">
+            </div>
+            <div class="col-md-3 ">
 
-                        <label for="">
-                            Ativo/Inativo
-                        </label>
-                        <input type="text" name="liv_ativoInativo" id="" value="<%obj_livros[0].liv_ativoInativo%>"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 offset-col-md-1">
+                <label for="">
+                    ISBN
+                </label>
+                <input type="text" name="liv_isbn" id="edicao" class="form-control"
+                    value="<%= obj_livros[0].liv_isbn %>" />
+            </div>
+            <div class="col-md-2">
 
-                        <label for="">
-                            Titulo do livro
-                        </label>
-                        <input type="text" name="liv_titulo" id="titulo" value="<%obj_livros[0].liv_titulo%>"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 offset-col-md-1">
-
-                        <label for="">
-                            Edição
-                        </label>
-                        <input type="text" name="liv_edicao" id="edicao" value="<%obj_livros[0].liv_edicao%>"
-                            class="form-control" placeholder="nº Edição" size="15" maxlength="10">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 offset-col-md-1">
-
-                        <label for="">
-                            ISBN
-                        </label>
-                        <input type="text" name="liv_isbn" id="edicao" value="<%obj_livros[0].liv_isbn%>"
-                            class="form-control">
-                    </div>
-                    <div class="col-md-1 offset-col-md-0">
-
-                        <label for="">
-                            Ano
-                        </label>
-                        <input type="number" name="liv_ano" id="ano" value="<%obj_livros[0].liv_ano%>"
-                            class="form-control">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3 offset-col-md-3">
-
-                        <label for="">
-                            Autor
-                        </label>
-                        <div class="">
-                            <select name="aut_codigo" id="aut_codigo" class="form-control form-control-sm" required
-                                aria-describedby="autoHelp">
-                                <option value=""></option>
-                                <% obj_autores.forEach(function(autores){ %>
-                                <option <% if(autores.aut_codigo==obj_livros[0].aut_codigo) {%> selected="selected" <%}
-                        %> value="
-                        <%=autores.aut_codigo %>">
-                                    <%=autores.aut_codigo %>
-                                    <%=autores.aut_apelido %>
-                                </option>
-                                <% }); %>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 offset-col-md-3">
-
-                        <label for="">
-                            Editora
-                        </label>
-                        <div class="">
-                            <select name="edt_codigo" id="edt_nome" class="form-control form-control-sm" required
-                                aria-describedby="autoHelp">
-                                <option value=""></option>
-                                <% obj_editoras.forEach(function(editoras){ %>
-                                <option <% if(editoras.edt_codigo == obj_livros[0].edt_codigo) 
-                                {%> selected <%} %> value="
-                                    <%=editoras.edt_codigo %>">
-                                    <%=editoras.edt_codigo %>
-                                    <%=editoras.edt_nome %>
-                                </option>
-                                <% }); %>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2 mt-2">
-                    <div class="col-md-2 ">
-                        <button class="btn btn-secondary btn-block" type="button" href="/livros/listarLivros">Novo
-                            Registror</button>
-                    </div>
-                    <div class="col-md-2 offset-col-md-6">
-                        <button class="btn btn-primary btn-block" type="submit">Gravar Registro</button>
-                    </div>
-                    <div class="col-md-2 offset-col-md-6">
-                        <a href="/livros/listarLivros" class="btn btn-warning btn-block">Voltar</a>
-                    </div>
-
-                </div>
+                <label for="">
+                    Ano
+                </label>
+                <input type="text" name="liv_ano" id="ano"
+                    value="<%=obj_livros[0].liv_ano %>" class="form-control">
             </div>
         </div>
-    </form>
-</section>
+
+
+        <div class="row  justify-content-center mt-1 ">
+            <div class="col-md-3">
+
+                <label for="">
+                    Autor
+                </label>
+
+                <select name="aut_codigo" id="aut_codigo" class="form-control " required aria-describedby="autoHelp">
+                    <option value=""></option>
+                    <% obj_autores.forEach(function(autores){ %>
+                    <option <% if(autores.aut_codigo==obj_livros[0].aut_codigo) 
+                    {%> selected="selected" <%}
+                        %> value="
+                        <%=autores.aut_codigo %>">
+                        <%=autores.aut_codigo %>
+                        <%=autores.aut_apelido %>
+                    </option>
+                    <% }); %>
+
+                </select>
+            </div>
+            <div class="col-md-4">
+
+                <label for="">
+                    Editora
+                </label>
+
+                <select name="edt_codigo" id="edt_nome" class="form-control" required aria-describedby="autoHelp">
+                    <option value=""></option>
+                    <% obj_editoras.forEach(function(editoras){ %>
+                    <option <% if(editoras.edt_codigo == obj_livros[0].edt_codigo) 
+                {%> selected <%} %> value="
+                    <%=editoras.edt_codigo %>">
+                        <%=editoras.edt_codigo %>
+                        <%=editoras.edt_nome %>
+                    </option>
+                    <% }); %>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="row justify-content-center pt-2 mt-2">
+            <div class="col-md-3 ">
+                <a class="btn btn-primary btn-block" href="/livros/novoLivro">
+                    Novo Registro</a>
+            </div>
+            <div class="col-md-3 ">
+                <button class="btn btn-primary btn-block" type="submit">Gravar Registro</button>
+            </div>
+            <div class="col-md-2 ">
+                <a href="/livros/listarLivros" class="btn btn-warning btn-block">Voltar</a>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</form>
+
 <br>
 <br>
 

@@ -10,7 +10,7 @@
 }
 
 .menuPrincipal ul li a:hover {
-    color: red;
+    color: #B20000;
     font-size: 28px;
 
 }
@@ -31,11 +31,3 @@
     color: navy;
 }
 
-table {
-    border-collapse: collapse;
-    width: 50em;
-    border: 1px solid #666;
-}
-table, th, td {
-    border: 1px solid black;
-  }

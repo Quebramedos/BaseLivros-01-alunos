@@ -18,45 +18,51 @@
 
 <section id="listarlivros">
     <fieldset>
-        <legend> Registros de Livros </legend>
-        <table border="1" id="registros">
-            <tr>
-                <td>Código</td>
-                <td>Ativo/Inativo</td>
-                <td>Dt.Cadastro</td>
-                <td>Título do livro</td>
-                <td>Edição</td>
-                <td>ISBN</td>
-                <td>Ano</td>
-                <td>Autor</td>
-                <td>Editora</td>
-                <td><a class="btn btn-success btn-block" href="/livros/novoLivro">Novo Registro</a></td>
+        <legend>
+            <h3> Registros de Livros</h3>
+        </legend>
+        <table id="registros" class="table table-hover">
+            <tr class="text-center font-weight-bold">
+                <th scope="col">Código</th>
+                <td scope="col">Ativo/Inativo</td>
+                <td scope="col">Dt.Cadastro</td>
+                <td scope="col">Título do livro</td>
+                <td scope="col">Edição</td>
+                <td scope="col">ISBN</td>
+                <td scope="col">Ano</td>
+                <td scope="col">Autor</td>
+                <td scope="col">Editora</td>
+                <td scope="col">
+                    <a class="btn btn-success btn-block" href="/livros/novoLivro">Novo Registro</a></td>
             </tr>
 
-            <% for(i=0; i <obj_livros.length; i++) { %>
+            <tbody>
+                <% for(i=0; i <obj_livros.length; i++) { %>
 
-            <tr>
-                <td> <%= obj_livros[i].liv_codigo %> </td>
-                <td> <%= obj_livros[i].liv_ativoinativo %> </td>
-                <td> <%= obj_livros[i].liv_dtcadastro %> </td>
-                <td> <%= obj_livros[i].liv_titulo %> </td>
-                <td> <%= obj_livros[i].liv_edicao %> </td>
-                <td> <%= obj_livros[i].liv_isbn %> </td>
-                <td> <%= obj_livros[i].liv_ano %> </td>
-                <td> <%= obj_livros[i].aut_apelido %> </td>
-                <td> <%= obj_livros[i].edt_nome %> </td>
+                <tr>
+                    <th scope="row"> <%= obj_livros[i].liv_codigo %> </th>
+                    <td> <%= obj_livros[i].liv_ativoinativo %> </td>
+                    <td> <%= obj_livros[i].liv_dtcadastro %> </td>
+                    <td> <%= obj_livros[i].liv_titulo %> </td>
+                    <td> <%= obj_livros[i].liv_edicao %> </td>
+                    <td> <%= obj_livros[i].liv_isbn %> </td>
+                    <td> <%= obj_livros[i].liv_ano %> </td>
+                    <td> <%= obj_livros[i].aut_apelido %> </td>
+                    <td> <%= obj_livros[i].edt_nome %> </td>
 
-                <td><a class="btn btn-primary btn-block" href=<%="/livros/consultar/" + obj_livros[i].liv_codigo%>>
-                        Consultar
-                    </a></td>
-                <td>
-                    <a class="btn btn-success btn-block" href=<%="/livros/inativar/" + obj_livros[i].liv_codigo%>>
-                        Inativar
-                    </a>
-                </td>
-            </tr>
-            <% } %>
-
+                    <td><a class="btn btn-primary btn-block"
+                            href=<%="/livros/consultarLivro/" + obj_livros[i].liv_codigo%>>
+                            Editar
+                        </a></td>
+                    <td>
+                        <a class="btn btn-secondary btn-block"
+                            href=<%="/livros/inativarLivro/" + obj_livros[i].liv_codigo%>>
+                            Inativar/Ativar
+                        </a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
         </table>
     </fieldset>
 </section>
